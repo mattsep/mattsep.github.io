@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/mattsep/mattsep.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
@@ -26,7 +31,44 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
+```python
+class A:
+    def __init__(self, parameter):
+        self._parameter = parameter
+
+    def get_value(self):
+        return self._parameter
+    
+    def set_value(self, value):
+        self._parameter = int(value)
+
+for row in rows:
+    print(row)
+```
+
+```c++
+template <class... Ts>
+constexpr auto add(Ts... ts) {
+    return (ts + ... + 0);
+}
+```
+
+```d
+static foreach (i ;; elems) { // some really long comment that will likely scroll off the page
+
+}
+```
+
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+Example table:
+
+| A | B | C | D |
+|:-:| -:|:--|:-:|
+| 1 | 2 | 3 | 4 |
+|---------------|
+| a | b | c | d |
+|===============|
 
 ### Jekyll Themes
 

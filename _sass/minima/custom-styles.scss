@@ -1,0 +1,78 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+// ==============================================
+// Code block formatting
+// ==============================================
+
+pre, code {
+    font-family: $code-font-family;
+}
+  
+pre {
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+pre.highlight {
+    background: $code-background-color;
+    border: 1px solid $border-color;
+    padding-top: 12px;
+    @extend %vertical-rhythm;
+
+    .highlighter-rouge & {
+        background: $code-background-color;
+    }
+}
+
+.lineno {
+    text-align: right;
+    color: $border-color;
+    padding-left: 4px;
+    padding-right: 7px;
+    border-right: 1px solid $border-color;
+}
+
+.rouge-gutter {
+    padding: 0;
+    margin: 0;
+    min-width: 32px;
+}
+
+.rouge-table {
+    margin-bottom: 0;
+    width: auto;
+    text-align: left;
+    border-collapse: none;
+    border: 0;
+
+    tr, th, td {
+        border: 0;
+        padding: 0;
+        margin: 0;
+
+        .rouge-code {
+        padding-left: 8px;
+        }
+    }
+
+    @include media-query($on-laptop) {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+}
+
+// ==============================================
+// Math formatting
+// ==============================================
+
+.katex {
+    font-size: 1.0em;
+}
