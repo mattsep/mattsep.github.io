@@ -69,10 +69,16 @@ pre.highlight {
     }
 }
 
+.email:before {
+    content: attr(data-domain) "\0040" attr(data-user);
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
 // ==============================================
 // Math formatting
 // ==============================================
 
-.katex {
-    font-size: 1.0em;
+.MathJax_CHTML {
+    font-size: 1.1em !important;
 }

@@ -1,79 +1,17 @@
 ---
 layout: default
-title: Home
+title: About
+headshot: true
 ---
 
-## Welcome to GitHub Pages
+# About Me
 
-You can use the [editor on GitHub](https://github.com/mattsep/mattsep.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<!-- basic background -->
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Hello! My name is Matt. I'm currently a PhD student in physics at [Brandeis University](https://brandeis.edu), where I am co-advised by [Aparna Baskaran](https://www.brandeis.edu/physics/people/profiles/baskaran-aparna.html) and [Michael Hagan](https://www.brandeis.edu/physics/people/profiles/hagan-michael.html). My research falls under the broad category of [active matter](https://en.wikipedia.org/wiki/Active_matter)—more specifically, I study the effects of confinement on the non-equilibrium behavior of active filaments through a combination of theory, simulation, and close collaboration with experimentalists.
 
-### Markdown
+Most of my day-to-day work involves programming to some degree; usually simple one-off bash scripts or data analysis tools. I've developed a love for programming as a result, and spend a lot of time thinking about how to build tools or libraries that could make my life (and maybe the lives of others?) easier. Mostly, these tools are related to the research I do, but when I have time I like to explore other projects ([like this NES emulator](https://github.com/mattsep/renes)).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<!-- hobbies and interests -->
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-```python
-class A:
-    def __init__(self, parameter):
-        self._parameter = parameter
-
-    def get_value(self):
-        return self._parameter
-    
-    def set_value(self, value):
-        self._parameter = int(value)
-
-for row in rows:
-    print(row)
-```
-
-```c++
-template <class... Ts>
-constexpr auto add(Ts... ts) {
-    return (ts + ... + 0);
-}
-```
-
-```d
-static foreach (i ;; elems) { // some really long comment that will likely scroll off the page
-
-}
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-Example table:
-
-| A | B | C | D |
-|:-:| -:|:--|:-:|
-| 1 | 2 | 3 | 4 |
-|---------------|
-| a | b | c | d |
-|===============|
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mattsep/mattsep.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<!-- Outside of science and programming, I'm an avid guitarist, and enjoy various board and video games. -->
