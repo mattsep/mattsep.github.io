@@ -23,7 +23,7 @@ $$
     = 1.
 $$
 
-This happens to be exact for any value of $$ x $$ in this case, and in fact we'd get the same result no matter what choice of $$ h $$ we make do to the fact that we chose a linear function. But this doesn't work on a typical computer! Assuming that we use IEEE 754 compliant 64-bit floating point numbers (as is usually the case for the `double` type in C/C++, or the `float` type in Python), we'd find that our result depends on $$ x $$. For example,
+This happens to be exact for any value of $$ x $$ in this case, and in fact we'd get the same result no matter what choice of $$ h $$ we make due to the fact that we chose a linear function. But this doesn't work on a typical computer! Assuming that we use IEEE 754 compliant 64-bit floating point numbers (as is usually the case for the `double` type in C/C++, or the `float` type in Python), we'd find that our result depends on $$ x $$. For example,
 
 $$
     [f'(0.0)] = 1.0
@@ -144,7 +144,7 @@ Dual numbers are pretty simple to implement. Consider the following:
 ```c++
 class dual {
 public:
-    /* implicit */ constexpr dual(double real) : dual(real, T{}) {}
+    constexpr dual(double real) : dual(real, T{}) {}
     constexpr dual(double real, double diff) : m_data{real, diff} {}
 
     constexpr auto real() { return m_data[0]; }
