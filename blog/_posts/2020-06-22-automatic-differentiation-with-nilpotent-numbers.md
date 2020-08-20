@@ -12,9 +12,7 @@ $$
 
 This definition works just fine, and gives a good intuition for what a derivative is. However, it isn't a definition can be readily implemented in some programmatic way. The most obvious way to do this is through forward finite differences: we choose some small value for $$ h $$, and then compute the above expression (without the limit) directly. The quality of the approximation will depend on the function and on the value of $$ h $$ that is chosen. <!-- read more --> Naively, you might expect that you can pick some arbitrarily small number and have it work just fine, and you would be absolutely correct if it weren't for the computational limitations of floating point numbers. Unfortunately, things like [round-off error](https://en.wikipedia.org/wiki/Round-off_error) and [catastrophic cancellation](https://en.wikipedia.org/wiki/Loss_of_significance) make it impossible to find a suitable choice of $$ h $$ that works for any function.
 
-Here's a simple example showing how this breaks down. Let $$ [x] $$ represent the floating point 
-approximation of the real value $$ x $$, and consider the function $$ f(x) = x $$. We will
-choose $$ h = 2^{-53} $$; then
+Here's a simple example showing how this breaks down. Let $$ [x] $$ represent the floating point approximation of the real value $$ x $$, and consider the function $$ f(x) = x $$. We will choose $$ h = 2^{-53} $$; then
 
 $$
     f'(x)
@@ -31,7 +29,7 @@ $$
     [f'(1.0)] = 0.0
 $$
 
-The problem is our poor choice of $$ h $$. It turns out that $$ [1.0 + 2^{-53}] = [1.0] $$, leading to the unfortunate result that $$ [f(x + h)] - [f(x)] = [0.0] $$. Not only that, even if our choice of $$ h $$ is "good" for for our use case, the result is still just an approximation. 
+The problem is our poor choice of $$ h $$. It turns out that $$ [1.0 + 2^{-53}] = [1.0] $$, leading to the unfortunate result that $$ [f(x + h)] - [f(x)] = [0.0] $$. Not only that, even if our choice of $$ h $$ is "good" for for our use case, the result is still just an approximation.
 
 Let's see if we can do better.
 
@@ -122,7 +120,7 @@ $$
     f(x + \epsilon) = (x + \epsilon)^2 = x^2 + 2x \epsilon.
 $$
 
-This can be further extended to work for directional derivatives of multivariable functions. For example, consider the function $$ f(x, y) = x^2 y $$. Let's suppose we want to compute the derivative in the direction $$ \vec{p} = u \hat{x} + v \hat{y} $$. We can see that 
+This can be further extended to work for directional derivatives of multivariable functions. For example, consider the function $$ f(x, y) = x^2 y $$. Let's suppose we want to compute the derivative in the direction $$ \vec{p} = u \hat{x} + v \hat{y} $$. We can see that
 
 $$
     f(x + u\epsilon, y + v\epsilon)
@@ -199,12 +197,9 @@ std::cout << y.real() << '\n'; // prints "2.0"
 std::cout << y.diff() << '\n'; // prints "4.0"
 ```
 
-Great! With no additional work on our part (other than making `x` a `dual` instead of a 
-normal floating point type), we obtained both the value and the derivative of the function 
-$$ f(x) = 1 / (1 - x) $$ at $$ x = 1/2 $$. 
+Great! With no additional work on our part (other than making `x` a `dual` instead of a normal floating point type), we obtained both the value and the derivative of the function $$ f(x) = 1 / (1 - x) $$ at $$ x = 1/2 $$.
 
-To handle more complex functions, we need only specialize the standard library math functions for
-our `dual` type. As an example, we can specialize `std::sin`
+To handle more complex functions, we need only specialize the standard library math functions for our `dual` type. As an example, we can specialize `std::sin`
 
 ```c++
 namespace std {
@@ -228,9 +223,4 @@ std::cout << y.real() << '\n'; // prints "0.971938"
 std::cout << y.diff() << '\n'; // prints "0.418200"
 ```
 
-Besides the fact that we get the value of the derivative automatically, we also avoided the problem
-inherent in a finite difference approximation of the derivative, which is the choice of the value of
-$$ h $$. Rather than needing to make this choice on a per-function basis, the calculation is all 
-done behind the scenes, with no approximations. It just works&trade;.
-
-
+Besides the fact that we get the value of the derivative automatically, we also avoided the problem inherent in a finite difference approximation of the derivative, which is the choice of the value of $$ h $$. Rather than needing to make this choice on a per-function basis, the calculation is all done behind the scenes, with no approximations. It just works&trade;.
