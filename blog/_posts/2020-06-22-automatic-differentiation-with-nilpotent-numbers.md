@@ -199,25 +199,21 @@ std::cout << y.diff() << '\n'; // prints "4.0"
 
 Great! With no additional work on our part (other than making `x` a `dual` instead of a normal floating point type), we obtained both the value and the derivative of the function $$ f(x) = 1 / (1 - x) $$ at $$ x = 1/2 $$.
 
-To handle more complex functions, we need only specialize the standard library math functions for our `dual` type. As an example, we can specialize `std::sin`
+To handle more complex functions, we can wrap the standard library math functions for our `dual` type. As an example, we can wrap `std::sin`
 
 ```c++
-namespace std {
-
 auto sin(dual x) -> dual {
-    auto a = sin(x.real());
-    auto b = cos(x.real());
+    auto a = std::sin(x.real());
+    auto b = std::cos(x.real());
     return {a, b * x.diff()};
 }
-
-}  // namespace std
 ```
 
 which allows us to evaluate more complex functions, such as
 
 ```c++
 auto x = dual{0.25, 1.0};
-auto y = std::sin(1.0 / (1.0 - x));
+auto y = sin(1.0 / (1.0 - x));
 
 std::cout << y.real() << '\n'; // prints "0.971938"
 std::cout << y.diff() << '\n'; // prints "0.418200"
